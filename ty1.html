@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
+        .mytext{ 
+            width: 300px; 
+            height:30px;
+        }
        .ban{
            width:500px;
            height:auto;
@@ -15,34 +19,33 @@
             font-size: 12px;
             text-align: center;
             line-height: 25px;
-            background: paleturquoise;
+            background: rgb(208, 209, 118);
         }
     </style>
 </head>
 <body>
-    使用者名稱:
-    <br/> <input type="text" id="mood"/><br/>
-    留言:<br/> <textarea id="network"></textarea><br/>
-    <button id="send">發送</button>
+    <br/><h1 style="font-family:Arial Black;">使用者名稱: <input type="text" id="user" class="mytext"/><br/></h1>
+    <h1 style="font-family:Arial Black;">留言:</h1><br/> <textarea id="word"></textarea><br/>
+    <button id="send" style="text-align:center;">發送</button>
 <div class="ban"></div>
 <script>
-var mood=document.getElementById ("mood");
-var network=document.getElementById ("network");
+var user=document.getElementById ("user");
+var word=document.getElementById ("word");
 var send=document.getElementById ("send");
 var ban=document.querySelector (".ban");
 //localStorage.clear ();
 readdata();
 send.onclick =function(){
   var time=new Date();
-  var shuj={    //存放的地方
-        mymood:mood.value,
-        mynetwork:network .value,
+  var aiw={    //存放的地方
+        theuser:user.value,
+        theword:word .value,
         now_time:time.toLocaleString()  //時間
     };
     // console.log(JSON.stringify (shuju));
-     localStorage.setItem (time.getTime(),JSON.stringify (shuj));
-    mood.value="";
-    network.value ="";
+    localStorage.setItem (time.getTime(),JSON.stringify (aiw));
+    user.value="";
+    word.value ="";
 
     // alert("發送成功");
      readdata();
@@ -54,7 +57,7 @@ function readdata(){
       var k=localStorage.key(i);  
       var data=JSON.parse (localStorage.getItem(k));  //
         console.log(k);
-        ban.innerHTML +=data.mymood +" &nbsp;&nbsp;&nbsp;"+data.mynetwork +" &nbsp;&nbsp;&nbsp;"+ data.now_time +"<br/>";
+        ban.innerHTML +=data.theuser +" :&nbsp;&nbsp;"+data.theword +" <br/>"+ data.now_time +"<br/>";
     }
 }
 </script>
