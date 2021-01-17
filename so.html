@@ -1,16 +1,29 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+
     <style>
-        
-        
+        .hrrr{
+             size:8px;
+             width:300px;
+             margin:0 auto;
+            }
+        .centere{
+             text-align: center;
+             background-color:rgb(146, 243, 243);
+             margin:0 auto;
+        }
+        .mytext{ 
+            width: 300px; 
+            height:30px;
+        }
        .ban{
            width:500px;
            height:auto;
            border:10px dashed rgb(54, 11, 71);
-           
+            margin:0 auto;  /*自動置中*/
        }
         #send {
             width:80px;
@@ -20,13 +33,20 @@
             line-height: 25px;
             background: rgb(145, 200, 236);
         }
-        
+        .dj{
+            border: 5px solid #15064b;
+            border-radius: 5px;
+            background-color:#2332b8;
+            width: 600px;
+            height:60px;
+            margin:0 auto;
+        }
         
     </style>
 </head>
 <body class="centere">
-    <br/>使用者名稱: <input type="text" id="user" class="mytext"/><br/>
-    <br/>想說的話: <textarea id="word"></textarea><br/>
+    <br/><h1 style="font-family:Arial, Helvetica, sans-serif;color:rgb(255, 255, 255)"  class=dj>使用者名稱: <input type="text" id="user" class="mytext"/><br/></h1>
+    <br/><h1 style="font-family:Arial, Helvetica, sans-serif;">想說的話: <textarea id="word"></textarea><br/></h1>
     <br/><button id="send">留言</button><br/><br/>
     <div class="ban" ></div>
 <script>
@@ -58,7 +78,7 @@ function readdata(){
       var k=localStorage.key(i);  
       var data=JSON.parse (localStorage.getItem(k));  //
         console.log(k);
-        ban.innerHTML +=data.theuser +" :&nbsp;&nbsp;"+data.theword +" <br/>"+ data.now_time +"<br/>";
+        ban.innerHTML +=data.theuser +" :&nbsp;&nbsp;"+data.theword +" <br/>"+ data.now_time +"<br/>"+"<hr class=hrrr>";
     }
 }
 </script>
