@@ -1,9 +1,22 @@
 <!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
     <style>
+        .hrrr{
+             size:8px;
+             width:300px;
+             margin:0 auto;
+            }
+        .centere{
+             text-align: center;
+             background-color:rgb(146, 243, 243);
+             margin:0 auto;
+        }
         .mytext{ 
             width: 300px; 
             height:30px;
@@ -11,29 +24,39 @@
        .ban{
            width:500px;
            height:auto;
-           border:1px solid black;
+           border:10px dashed rgb(54, 11, 71);
+            margin:0 auto;  /*自動置中*/
        }
         #send {
-            width:40px;
+            width:80px;
             height:25px;
             font-size: 12px;
             text-align: center;
             line-height: 25px;
-            background: rgb(208, 209, 118);
+            background: rgb(145, 200, 236);
         }
+        .dj{
+            border: 5px solid #15064b;
+            border-radius: 5px;
+            background-color:#2332b8;
+            width: 600px;
+            height:60px;
+            margin:0 auto;
+        }
+        
     </style>
 </head>
-<body>
-    <br/><h1 style="font-family:Arial Black;">使用者名稱: <input type="text" id="user" class="mytext"/><br/></h1>
-    <h1 style="font-family:Arial Black;">留言:</h1><br/> <textarea id="word"></textarea><br/>
-    <button id="send" style="text-align:center;">發送</button>
-<div class="ban"></div>
+<body class="centere">
+    <br/><h1 style="font-family:Arial, Helvetica, sans-serif;color:rgb(255, 255, 255)"  class=dj>使用者名稱: <input type="text" id="user" class="mytext"/><br/></h1>
+    <br/><h1 style="font-family:Arial, Helvetica, sans-serif;">想說的話: <textarea id="word"></textarea><br/></h1>
+    <br/><button id="send">留言</button><br/><br/>
+    <div class="ban" ></div>
 <script>
 var user=document.getElementById ("user");
 var word=document.getElementById ("word");
 var send=document.getElementById ("send");
 var ban=document.querySelector (".ban");
-//localStorage.clear ();
+//localStorage.clear ();加了這行每重載一次會清除留言區
 readdata();
 send.onclick =function(){
   var time=new Date();
@@ -47,7 +70,7 @@ send.onclick =function(){
     user.value="";
     word.value ="";
 
-    // alert("發送成功");
+    
      readdata();
 }
 function readdata(){
@@ -57,7 +80,7 @@ function readdata(){
       var k=localStorage.key(i);  
       var data=JSON.parse (localStorage.getItem(k));  //
         console.log(k);
-        ban.innerHTML +=data.theuser +" :&nbsp;&nbsp;"+data.theword +" <br/>"+ data.now_time +"<br/>";
+        ban.innerHTML +=data.theuser +" :&nbsp;&nbsp;"+data.theword +" <br/>"+ data.now_time +"<br/>"+"<hr class=hrrr>";
     }
 }
 </script>
