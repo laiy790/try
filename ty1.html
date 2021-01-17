@@ -9,7 +9,7 @@
        .ban{
            width:500px;
            height:auto;
-           border:10px dashed rgb(54, 11, 71);
+           
            
        }
         #send {
@@ -34,7 +34,7 @@ var user=document.getElementById ("user");
 var word=document.getElementById ("word");
 var send=document.getElementById ("send");
 var ban=document.querySelector (".ban");
-//localStorage.clear ();加了這行每重載一次會清除留言區
+localStorage.clear ();//加了這行每重載一次會清除留言區
 readdata();
 send.onclick =function(){
   var time=new Date();
